@@ -1,0 +1,17 @@
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.text }}</p>
+
+    {% if post.author %}
+      <p><strong>Author:</strong> {{ post.author }}</p>
+    {% endif %}
+
+    {% if post.created_at %}
+      <p><em>Published on: {{ post.created_at }}</em></p>
+    {% endif %}
+   </div>
+{% endblock %}
