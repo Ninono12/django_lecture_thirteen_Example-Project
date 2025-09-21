@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from blog.forms import BlogPostForm, BlogPostModelForm
-from blog.models import BannerImage
+from blog.models import BlogPost, BannerImage
 
 
 def create_blog_post(request):
     if request.method == 'POST':
         form = BlogPostForm(request.POST)
         if form.is_valid():
+            BlogPost.objects.create(**form.cleaned_data)
             return redirect('thank_you')
     else:
         form = BlogPostForm()
@@ -19,7 +20,7 @@ def thank_you(request):
 
 def create_blog_post_model_form(request):
     if request.method == 'POST':
-        form = BlogPostModelForm(request.POST, request.FILES)
+        form = BlogPostModelForm(request.POST)
         if form.is_valid():
             blog_post = form.save()
             banner_file = request.FILES.get('banner_image')

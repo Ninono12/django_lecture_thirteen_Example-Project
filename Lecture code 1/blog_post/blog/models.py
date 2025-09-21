@@ -1,5 +1,6 @@
 from datetime import date
 from django.db import models
+from .choices import BLOG_POST_CATEGORY_CHOICES
 
 class Author(models.Model):
     first_name = models.CharField(verbose_name='სახელი', max_length=100)
@@ -39,7 +40,7 @@ class BlogPost(models.Model):
     website = models.URLField(verbose_name='ვებ მისამართი', null=True)
     document = models.FileField(upload_to='blog_document/', null=True, blank=True)
     deleted = models.BooleanField(verbose_name='წაშლილია', default=False)
-    #category = models.IntegerField(choices=BLOG_POST_CATEGORY_CHOICES, verbose_name='Category', null=True)
+    category = models.IntegerField(choices=BLOG_POST_CATEGORY_CHOICES, verbose_name='Category', null=True)
 
     def get_images(self):
         return BlogPostImage.objects.filter(blog_post=self.id)
