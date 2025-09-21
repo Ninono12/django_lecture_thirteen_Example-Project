@@ -17,10 +17,9 @@ def create_blog_post(request):
 def thank_you(request):
     return render(request, template_name='thank_you.html')
 
-
 def create_blog_post_model_form(request):
     if request.method == 'POST':
-        form = BlogPostModelForm(request.POST)
+        form = BlogPostModelForm(request.POST, request.FILES)
         if form.is_valid():
             blog_post = form.save()
             banner_file = request.FILES.get('banner_image')

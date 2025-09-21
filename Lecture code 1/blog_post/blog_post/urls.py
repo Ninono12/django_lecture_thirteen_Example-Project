@@ -25,7 +25,7 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('', lambda request: redirect('create_blog_post')),
+    path('', lambda request: redirect('create_blog_post_model_form')),
 ]
 
 if settings.DEBUG:

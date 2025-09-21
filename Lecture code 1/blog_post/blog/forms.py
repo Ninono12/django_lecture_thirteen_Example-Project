@@ -17,7 +17,7 @@ class BlogPostForm(forms.Form):
 
 
 class BlogPostModelForm(forms.ModelForm):
-    banner_image = forms.ImageField(label="Banner ifields = ['title', 'text', 'active', 'document', 'category', 'authors', 'banner_image']mage", required=False)
+    banner_image = forms.ImageField(label="Banner Image", required=False)
 
     class Meta:
         model = BlogPost
