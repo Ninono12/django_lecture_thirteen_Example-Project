@@ -1,6 +1,5 @@
 from django import forms
-from blog.models import BlogPost
-
+from .models import BlogPost
 
 class BlogPostForm(forms.Form):
     title = forms.CharField(label="Title", max_length=255)
@@ -22,4 +21,4 @@ class BlogPostModelForm(forms.ModelForm):
 
     class Meta:
         model = BlogPost
-        fields = ['title', 'text', 'active', 'document', 'category', 'authors', 'banner_image']
+        fields = ['title', 'text', 'active', 'document', 'authors', 'banner_image']

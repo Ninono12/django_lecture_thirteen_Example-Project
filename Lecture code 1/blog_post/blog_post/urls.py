@@ -20,9 +20,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from django.shortcuts import redirect
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
+    path('', lambda request: redirect('create_blog_post')),
 ]
 
 if settings.DEBUG:
